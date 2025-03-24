@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AR.js Test</title>
-    <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.2/dist/aframe.min.js"></script>
+    <title>OpenBIM WebAR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.146/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.0/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.146/examples/js/loaders/GLTFLoader.js"></script>
+
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
 </head>
 <body>
-    <a-scene embedded arjs>
+    <!-- AR.js Scene -->
+    <a-scene embedded arjs='sourcetype: webcam;debugUIEnable: false;'>
         <!-- Marker-based AR -->
         <a-marker preset="hiro">
-            <a-box position="0 0.5 0" material="color: red;"></a-box>
+            <!-- glTF Model -->
+            <a-entity id="model" gltf-model="assets/model.glb" scale="0.1 0.1 0.1"></a-entity>
         </a-marker>
         <!-- Camera -->
         <a-entity camera></a-entity>
     </a-scene>
+    <script src="script.js"></script>
 </body>
 </html>
