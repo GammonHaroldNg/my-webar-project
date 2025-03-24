@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>OpenBIM WebAR</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.146/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.0/build/aframe-ar.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.146/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.5/aframe/build/aframe-ar.js"></script>
 
-    <style>
-        body { margin: 0; }
-        canvas { display: block; }
-    </style>
-</head>
-<body>
-    <!-- AR.js Scene -->
-    <a-scene embedded arjs='sourcetype: webcam;debugUIEnable: false;'>
-        <!-- Marker-based AR -->
-        <a-marker preset="hiro">
-            <!-- glTF Model -->
-            <a-entity id="model" gltf-model="assets/model.glb" scale="0.1 0.1 0.1"></a-entity>
-        </a-marker>
-        <!-- Camera -->
-        <a-entity camera></a-entity>
-    </a-scene>
-    <script src="script.js"></script>
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+    <a-marker type='pattern' url='assets/pattern-marker.patt'>
+      <a-entity position='0 -6 -12' rotation="-20 0 0" gltf-model="url(assets/scene.gltf)"></a-entity>
+    </a-marker>
+  </a-scene>
 </body>
-</html>
